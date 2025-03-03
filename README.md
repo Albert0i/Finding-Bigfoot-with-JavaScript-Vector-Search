@@ -229,6 +229,10 @@ export async function embed(text) {
 
 ![alt ](img/embedding.JPG)
 
+One point worth noting in embedder is the use of **consumer group** `bigfoot:sighting:group`to process the sighting stream. 
+
+![alt XINFO2](img/XINFO2.JPG)
+
 
 #### IV. Running the front end
 
