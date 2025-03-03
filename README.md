@@ -67,7 +67,36 @@ Our backend is done, easy-peasy! Right?
 
 
 #### II. Loading the data 
-It is impossible to load all 4586 sightings into a Redis Free Account as you are confined to 30MB only. I significantly trimmed them down to 300 sights. 
+It is impossible to load all 4586 sightings into a Redis Free Account as you are confined to 30MB only. I significantly trimmed them down to 300 sights. Each sighting data takes the form of: 
+
+```
+{
+    "id": "8130",
+    "timestamp": 1077753600,
+    "title": "Tribal government employee photographs line of tracks in snow",
+    "observed": "Foot prints where found in the bad lands of North Dakota near Mandaree.",
+    "classification": "Class B",
+    "county": "McKenzie",
+    "state": "North Dakota",
+    "latitude": 47.63297,
+    "longitude": -102.7291,
+    "latlng": "-102.7291,47.63297",
+    "locationDetails": "The location was about 10 to 15 miles south of Mandaree ND.The landscape was the bad lands,steep clay hills,some brush and trees.",
+    "dewPoint": 26.51,
+    "humidity": 0.88,
+    "cloudCover": 0.18,
+    "moonPhase": 0.21,
+    "pressure": 1010.4,
+    "weatherSummary": "Partly cloudy starting in the evening.",
+    "uvIndex": 2,
+    "visibility": 7.19,
+    "highTemp": 38.12,
+    "midTemp": 35.03,
+    "lowTemp": 31.94,
+    "windBearing": 121,
+    "windSpeed": 5.78
+}
+```
 
 Leave the API running as it is and let's change to the `loader` folder and run `npm install` command. To show help with:
 ```
