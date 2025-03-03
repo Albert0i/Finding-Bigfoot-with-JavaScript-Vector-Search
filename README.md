@@ -4,22 +4,23 @@
 
 [![alt Dylan Sitts - Hey Pal](img/Dylan%20Sitts%20-%20Hey%20Pal.png)](https://youtu.be/b1P5CsG9wpo)
 
+
 #### Prologue
 
 
-#### I. Setp One - Setting up backend end API 
+#### I. Setting up backend end API 
 
 
-#### II. Setp Two - Loading the data 
+#### II. Loading the data 
 
 
-#### III. Setp Three - Creating embeddings 
+#### III. Creating embeddings 
 
 
-#### IV. Setp Four - Running the front end
+#### IV. Running the front end
 
 
-#### V. Step Five - To sum up 
+#### V. Summary
 
 
 #### VI. Bibliography
