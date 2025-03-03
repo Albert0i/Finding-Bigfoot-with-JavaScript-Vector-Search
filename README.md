@@ -112,7 +112,7 @@ npm start -- ../data/bfro_reports_geocoded_300.jsonl
 
 ![alt loader](img/loader.JPG)
 
-Check with RedisInsight: 
+Check with [RedisInsight](https://redis.io/insight/): 
 
 ![alt sightings](img/sightings.JPG)
 
