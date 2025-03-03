@@ -126,7 +126,7 @@ It is impossible to load all 4586 sightings into a Redis Free Account as it is c
 }
 ```
 
-in [JSONL](https://jsonlines.org/) format. Leave the API running and open another terminal. Let's change to the `loader` folder and run `npm install` command. To show help with:
+Leave the API running and open another terminal. Let's change to the `loader` folder and run `npm install` command. To show help with:
 ```
 npm start -- --help
 ```
@@ -144,7 +144,7 @@ Check with [RedisInsight](https://redis.io/insight/):
 
 ![alt sightings](img/sightings.JPG)
 
-As you can see, every sighting is stored in [HASH](https://redis.io/docs/latest/develop/data-types/hashes/) `bigfoot:sighting:<id>`, a separate [STREAM](https://redis.io/docs/latest/develop/data-types/streams/) `bigfoot:sighting:reported` is stored for later use. 
+As you can see, every sighting is stored in [HASH](https://redis.io/docs/latest/develop/data-types/hashes/) `bigfoot:sighting:<id>`, a separate [STREAM](https://redis.io/docs/latest/develop/data-types/streams/) `bigfoot:sighting:reported` is stored for later use. The `loader.js` per se works by reading in [JSONL](https://jsonlines.org/) data line by line, makes a `POST` call to `http://localhost:3000/api/load`, our backend API, that is. 
 
 
 #### III. Creating embeddings 
