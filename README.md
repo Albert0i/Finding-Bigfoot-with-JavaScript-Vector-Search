@@ -308,6 +308,9 @@ Va là! It works as expected...
 
 
 #### V. Summary
+To finish with creation of 300 embeddings, i can hear my computer buzzed in exasperation for more than 15 hours... 
+
+
 
 
 #### VI. Bibliography
