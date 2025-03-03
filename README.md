@@ -304,6 +304,8 @@ Up till now, we've got everything ready to run the frontend. Change to `web` fol
 
 ![alt web4](img/web4.JPG)
 
+Va là! It works as expected... 
+
 
 #### V. Summary
 
