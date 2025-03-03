@@ -294,6 +294,15 @@ Creation of embeddings is a CPU intensive task, it takes 3 minutes to process on
 
 
 #### IV. Running the front end
+Up till now, we've got everything ready to run the frontend. Change to `web` folder and type `npm run dev`. 
+
+![alt web1](img/web1.JPG)
+
+![alt web2](img/web2.JPG)
+
+![alt web3](img/web3.JPG)
+
+![alt web4](img/web4.JPG)
 
 
 #### V. Summary
