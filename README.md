@@ -81,7 +81,7 @@ To load data with:
 npm start -- ../data/bfro_reports_geocoded_300.jsonl
 ```
 
-[alt loader](img/loader.JPG)
+![alt loader](img/loader.JPG)
 
 
 #### III. Creating embeddings 
