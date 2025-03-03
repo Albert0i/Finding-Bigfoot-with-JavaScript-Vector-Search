@@ -71,14 +71,14 @@ It is impossible to load all 4586 sightings into a Redis Free Account as you are
 
 Leave the API running as it is and let's change to the `loader` folder and run `npm install` command. To show help with:
 ```
-    npm start -- --help
+npm start -- --help
 ```
 
 ![alt loader help](img/loader-help.JPG)
 
 To load data with: 
 ```
-    npm start -- ../data/bfro_reports_geocoded_300.jsonl
+npm start -- ../data/bfro_reports_geocoded_300.jsonl
 ```
 
 [alt loader](img/loader.JPG)
