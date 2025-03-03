@@ -63,7 +63,35 @@ http://localhost:3000/api/search
 - fetch : Call `fetch` function in `main.js` to get a sighting record from Redis by `hGetAll`; 
 - search : Call `search` function in `main.js` to search sighting records via *vector semantic search*; 
 
-Our backend is done, easy-peasy! Right? 
+Our backend is up and running, easy-peasy! Right? Behind the scene `redis.js` checks and create index `bigfoot:sighting:index` if necessary every time it is restarted. 
+
+`src/redis.js`
+```
+async function createIndex() {
+  await redis.ft.create(
+    'bigfoot:sighting:index', {
+      'id': SchemaFieldTypes.TAG,
+      'title': SchemaFieldTypes.TEXT,
+      'observed': SchemaFieldTypes.TEXT,
+      'classification': SchemaFieldTypes.TAG,
+      'county': SchemaFieldTypes.TAG,
+      'state': SchemaFieldTypes.TAG,
+      'latlng': SchemaFieldTypes.GEO,
+      'highTemp': SchemaFieldTypes.NUMERIC,
+      'embedding': {
+        type: SchemaFieldTypes.VECTOR,
+        ALGORITHM: VectorAlgorithms.FLAT,
+        TYPE: 'FLOAT32',
+        DIM: 384,
+        DISTANCE_METRIC: 'L2'
+      }
+    }, {
+      ON: 'HASH',
+      PREFIX: `${BIGFOOT_PREFIX}:`
+    }
+  )
+}
+```
 
 
 #### II. Loading the data 
@@ -116,6 +144,8 @@ Check with [RedisInsight](https://redis.io/insight/):
 
 ![alt sightings](img/sightings.JPG)
 
+As you can see, every sighting is stored in [HASH](https://redis.io/docs/latest/develop/data-types/hashes/) `bigfoot:sighting:<id>`, a separate [STREAM](https://redis.io/docs/latest/develop/data-types/streams/) `bigfoot:sighting:reported` is stored for later use. 
+
 
 #### III. Creating embeddings 
 
@@ -133,7 +163,8 @@ Check with [RedisInsight](https://redis.io/insight/):
 4. [JSON Lines](https://jsonlines.org/)
 5. [Hugging Face](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf)
 6. [Transformers.js](https://github.com/huggingface/transformers.js?tab=readme-ov-file#readme)
-7. [The Stranger by Albert Camus](https://www.macobo.com/essays/epdf/CAMUS,%20Albert%20-%20The%20Stranger.pdf)
+7. [Node-Redis](https://www.npmjs.com/package/redis)
+8. [The Stranger by Albert Camus](https://www.macobo.com/essays/epdf/CAMUS,%20Albert%20-%20The%20Stranger.pdf)
 
 
 #### Epilogue
