@@ -71,6 +71,7 @@ It is impossible to load all 4586 sightings into a Redis Free Account as you are
 
 Leave the API running as it is and let's change to the `loader` folder and run `npm install` command. To show help with:
 ```
+    npm start -- --help
 ```
 
 To load data with: 
