@@ -233,6 +233,61 @@ One point worth noting in embedder is the use of **consumer group** `bigfoot:sig
 
 ![alt XINFO2](img/XINFO2.JPG)
 
+`app.js`
+```
+// loop forever to read from stream
+while (true) {
+
+  try {
+
+    // try to claim an old event first
+    let event = await claimPendingEvent(streamKey, consumerGroupName, consumerName)
+    if (event) console.log("Claimed pending event", event)
+
+    // read next event from the stream if nothing was claimed
+    if (event === null) {
+      event = await readNextEvent(streamKey, consumerGroupName, consumerName)
+      if (event) console.log("Read event", event)
+    }
+
+    // loop if nothing new was found
+    if (event === null) {
+      console.log("No event received, looping.")
+      continue
+    }
+
+    // process the event
+    await processEvent(event)
+    console.log("Processed event", event.id)
+
+    // acknowledge that the event was processed
+    await acknowledgeEvent(streamKey, consumerGroupName, event)
+    console.log("Acknowledged event", event.id)
+
+  } catch (error) {
+    console.log("Error reading from stream", error)
+  }
+}
+```
+
+Typically `app.js` is looping endless and do four things: 
+
+- Reclaim unprocessed sighting, if any; 
+
+- If there is no unprocessed sighting, read next sighting, if any; 
+
+- To process the sighting 
+
+- To acknowledge that the sighting was processed
+
+In this way, multiple copies of embedder can be orchestrated to speed up the process. Redis consumer group is a power mechanism to ensure at-least-once semantic, in this way, consumer group didn't make me disappointed as the embedding procss DOES crash from time to time... 
+
+![alt embedder error](img/embedderError.JPG)
+
+In case of error, you just need to re-run the embedder...
+
+![alt XCLAIM](img/XCLAIM.JPG)
+
 
 #### IV. Running the front end
 
