@@ -67,6 +67,19 @@ Our backend is done, easy-peasy! Right?
 
 
 #### II. Loading the data 
+It is impossible to load all 4586 sightings into a Redis Free Account as you are confined to 30MB only. I significantly trimmed them down to 300 sights. 
+
+Leave the API running as it is and let's change to the `loader` folder and run `npm install` command. To show help with:
+```
+```
+
+To load data with: 
+```
+    npm start -- ../data/bfro_reports_geocoded_300.jsonl
+```
+
+[alt loader](img/loader.JPG)
+
 
 
 #### III. Creating embeddings 
