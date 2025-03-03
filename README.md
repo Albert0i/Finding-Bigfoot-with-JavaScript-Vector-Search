@@ -67,7 +67,7 @@ Our backend is done, easy-peasy! Right?
 
 
 #### II. Loading the data 
-It is impossible to load all 4586 sightings into a Redis Free Account as it is confined to 30MB only! I significantly trimmed them down to 300 sights. Each sighting data takes the form of: 
+It is impossible to load all 4586 sightings into a Redis Free Account as it is confined to 30MB only! I significantly trimmed them down to 300 sightings. Each sighting data takes the form of: 
 
 ```
 {
