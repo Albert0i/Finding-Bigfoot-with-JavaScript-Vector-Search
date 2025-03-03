@@ -28,6 +28,7 @@ EXPRESS_BASE_URL=/api
 ```
 
 And run `npm install` and `npm start`. 
+
 ![alt API](img/api.JPG)
 
 easy-peasy! Right? 
