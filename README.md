@@ -186,9 +186,9 @@ Run `npm install`. The embedder is a stand-alone process which reads in sighting
 - To summarize the content in `observed` into a new `summary` field using model 
 [Mistral-7B-Instruct-v0.2-GGUF](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf); 
 
-- To create `embedding` field using [Xenova/all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2);
+- To create `embedding` field from `summary` using [Xenova/all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2);
 
-- Add these two new field into original sighting data. 
+- Add these two new field into original sighting data via `hSet`. 
 
 `app.js`
 ```
