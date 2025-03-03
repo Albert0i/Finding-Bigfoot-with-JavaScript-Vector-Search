@@ -6,6 +6,11 @@
 
 
 #### Prologue
+Previously, there was [Redis Stack Workshop: Redis Stack OM Library for Node.js](https://youtu.be/KUfufrwpBkM). Everytime I look into codes written by Guy, I learn something new... This repo is a simplified version of the original and is in favor of [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) rather than in [Docker](https://en.wikipedia.org/wiki/Docker_(software)) environment. 
+
+All you need is [NodeJS](https://nodejs.org/en) and a [Redis Free Account](https://redis.io/try-free/). 
+
+Original [README.md](./README.Guy.md) written by Guy. 
 
 
 #### I. Setting up backend end API 
