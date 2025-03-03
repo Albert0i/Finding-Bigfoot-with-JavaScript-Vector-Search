@@ -126,7 +126,7 @@ It is impossible to load all 4586 sightings into a Redis Free Account as it is c
 }
 ```
 
-in [JSONL](https://jsonlines.org/) format. Leave the API running as it is and let's change to the `loader` folder and run `npm install` command. To show help with:
+in [JSONL](https://jsonlines.org/) format. Leave the API running and open another terminal. Let's change to the `loader` folder and run `npm install` command. To show help with:
 ```
 npm start -- --help
 ```
