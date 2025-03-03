@@ -148,6 +148,86 @@ As you can see, every sighting is stored in [HASH](https://redis.io/docs/latest/
 
 
 #### III. Creating embeddings 
+We have loaded sighting data, however, not until we create *vector embeddings*, do we bestow backend API searching capability. How we do that? Change to `embedder` folder and modify three files we we did before.  
+
+.env
+```
+REDIS_HOST=r<your redis host>
+REDIS_PORT=<your redis port>
+REDIS_USERNAME=<your redis username>
+REDIS_PASSWORD=<your redis password>
+```
+
+`src/config.js`
+```
+export const REDIS_HOST = process.env.REDIS_HOST ?? 'redis'
+export const REDIS_PORT = Number(process.env.REDIS_PORT ?? 6379)
+export const REDIS_USERNAME = process.env.REDIS_USERNAME ?? 'default'
+export const REDIS_PASSWORD = process.env.REDIS_PASSWORD ?? ''
+```
+
+`src/redis.js`
+```
+async function connectToRedis() {
+  const redis = createClient({ socket: { 
+                                        host: REDIS_HOST, 
+                                        port: REDIS_PORT 
+                                       },
+                                username: REDIS_USERNAME, 
+                                password: REDIS_PASSWORD})
+  redis.on('error', (err) => console.log('Redis Client Error', err))
+  await redis.connect()
+  return redis
+}
+```
+
+Run `npm install`. The embedder is a stand-alone process which reads in sighting from stream and do three things: 
+
+- To summarize the content in `observed` into a new `summary` field using model 
+[Mistral-7B-Instruct-v0.2-GGUF](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf); 
+
+- To create `embedding` field using [Xenova/all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2);
+
+- Add these two new field into original sighting data. 
+
+`app.js`
+```
+async function processEvent(event) {
+
+  // get the message contents
+  const sightingId = event.message.id
+  const sightingText = event.message.observed
+
+  // summarize and embed the sighting
+  const sightingSummary = await summarize(sightingText) // this can take a while
+  const embeddingBytes = await embed(sightingSummary)
+
+  // update Hash in Redis with the summary and embedding
+  const key = `bigfoot:sighting:${sightingId}`
+  await redis.hSet(key, { summary: sightingSummary, embedding: embeddingBytes })
+
+}
+```
+
+`embed.js`
+```
+export async function summarize(text) {
+  try {
+    return await tryToSummarize(fetchSummarizationModel(), text)
+  } catch (error) {
+    console.log("Error using model. Recreating model and retrying.", error)
+    return await tryToSummarize(fetchSummarizationModel(true), text)
+  }
+}
+
+export async function embed(text) {
+  const embedding = await fetchEmbeddingModel().embedQuery(text)
+  const embeddingBytes = Buffer.from(Float32Array.from(embedding).buffer)
+  return embeddingBytes
+}
+```
+
+![alt ](img/embedding.JPG)
 
 
 #### IV. Running the front end
