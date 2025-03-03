@@ -14,7 +14,7 @@ Previously, there was [Redis Stack Workshop: Redis Stack OM Library for Node.js]
 
 
 #### I. Setting up backend end API 
-To begin with, augment `.env` under `api` folder.  
+To begin with, augment three files under `api` folder.  
 
 .env
 ```
@@ -22,16 +22,48 @@ REDIS_HOST=r<your redis host>
 REDIS_PORT=<your redis port>
 REDIS_USERNAME=<your redis username>
 REDIS_PASSWORD=<your redis password>
-
-EXPRESS_PORT=3000
-EXPRESS_BASE_URL=/api
 ```
 
-And run `npm install` and `npm start`. 
+`src/config.js`
+```
+export const REDIS_HOST = process.env.REDIS_HOST ?? 'redis'
+export const REDIS_PORT = Number(process.env.REDIS_PORT ?? 6379)
+export const REDIS_USERNAME = process.env.REDIS_USERNAME ?? 'default'
+export const REDIS_PASSWORD = process.env.REDIS_PASSWORD ?? ''
+```
+
+`src/redis.js`
+```
+async function connectToRedis() {
+  const redis = createClient({ socket: { 
+                                        host: REDIS_HOST, 
+                                        port: REDIS_PORT 
+                                       },
+                                username: REDIS_USERNAME, 
+                                password: REDIS_PASSWORD})
+  redis.on('error', (err) => console.log('Redis Client Error', err))
+  await redis.connect()
+  return redis
+}
+```
+
+Run `npm install` and `npm start`. 
 
 ![alt API](img/api.JPG)
 
-easy-peasy! Right? 
+Three API endpoints are available on `POST` request: 
+
+```
+http://localhost:3000/api/load
+http://localhost:3000/api/fetch
+http://localhost:3000/api/search 
+```
+
+- load : Call `save` function in `main.js` to add a sighting record to Redis by `hSet` and `xAdd` for later processing; 
+- fetch : Call `fetch` function in `main.js` to get a sighting record from Redis by `hGetAll`; 
+- search : Call `search` function in `main.js` to search sighting records via *vector semantic search*; 
+
+Our backend is done, easy-peasy! Right? 
 
 
 #### II. Loading the data 
