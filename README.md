@@ -284,9 +284,13 @@ In this way, multiple copies of embedder can be orchestrated to speed up the pro
 
 ![alt embedder error](img/embedderError.JPG)
 
-In case of error, you just need to re-run the embedder...
+In this case, you just need to re-run the embedder...
 
 ![alt XCLAIM](img/XCLAIM.JPG)
+
+Creation of embeddings is a CPU intensive task, it takes 3 minutes to process one sighting in my Windows 11, 32G, i7 machine. 
+
+![alt CPU](img/CPU.JPG)
 
 
 #### IV. Running the front end
