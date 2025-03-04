@@ -379,7 +379,7 @@ export async function search(query, params, count) {
 }
 ```
 
-The `search` function does all the heavy lifting by: 
+The `search` function does all the heavy lifting: 
 
 - It composes `searchQuery` filter by concatenating conditions (`state`, `county`, `classification`, `highTemp`, `point`) present in `params`; 
 
@@ -389,7 +389,7 @@ The `search` function does all the heavy lifting by:
 
 - Input `query` must be transformed to vector and convert to Array of float32; 
 
-- Make a call to [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/). 
+- Makes a call to [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/). 
 
 
 #### V. Summary
