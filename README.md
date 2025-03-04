@@ -405,6 +405,104 @@ To finish with creation of 300 embeddings, i can hear my computer kept on buzzin
 
 
 #### Epilogue
+For now, let's play with the index:
+
+Example 1: How many sightings? 
+```
+> FT.SEARCH bigfoot:sighting:index * LIMIT 0 0
+1) "300"
+```
+
+Example 2: Which states involved? 
+```
+> FT.AGGREGATE bigfoot:sighting:index * GROUPBY 1 @state SORTBY 2 @state ASC
+1) "16"
+2) 1) "state"
+   2) "Alaska"
+3) 1) "state"
+   2) "Mississippi"
+4) 1) "state"
+   2) "Missouri"
+5) 1) "state"
+   2) "Montana"
+6) 1) "state"
+   2) "Nebraska"
+7) 1) "state"
+   2) "Nevada"
+8) 1) "state"
+   2) "New Hampshire"
+9) 1) "state"
+   2) "New Jersey"
+10) 1) "state"
+   2) "New Mexico"
+11) 1) "state"
+   2) "New York"
+```
+
+Example 3: Which states involved and sorted them in descending order? 
+```
+> FT.AGGREGATE bigfoot:sighting:index * GROUPBY 1 @state REDUCE COUNT 0 AS count SORTBY 2 @count DESC
+1) "16"
+2) 1) "state"
+   2) "Missouri"
+   3) "count"
+   4) "130"
+3) 1) "state"
+   2) "North Carolina"
+   3) "count"
+   4) "75"
+4) 1) "state"
+   2) "Montana"
+   3) "count"
+   4) "43"
+5) 1) "state"
+   2) "Mississippi"
+   3) "count"
+   4) "21"
+6) 1) "state"
+   2) "Ohio"
+   3) "count"
+   4) "6"
+7) 1) "state"
+   2) "New Jersey"
+   3) "count"
+   4) "5"
+8) 1) "state"
+   2) "New Mexico"
+   3) "count"
+   4) "4"
+9) 1) "state"
+   2) "North Dakota"
+   3) "count"
+   4) "4"
+10) 1) "state"
+   2) "Nevada"
+   3) "count"
+   4) "3"
+11) 1) "state"
+   2) "Pennsylvania"
+   3) "count"
+   4) "2"
+```
+
+Example 4: Top 10 longest sighting reported?
+```
+> FT.AGGREGATE bigfoot:sighting:index * LOAD 1 @observed FILTER "exists(@observed)" apply "strlen(@observed)" AS obs_len GROUPBY 2 @id @obs_len SORTBY 2 @obs_len DESC LIMIT 0 10
+1) "299"
+2) 1) "id"
+   2) "46475"
+   3) "obs_len"
+   4) "14228"
+3) 1) "id"
+   2) "5697"
+   3) "obs_len"
+   4) "14198"
+4) 1) "id"
+   2) "5770"
+   3) "obs_len"
+   4) "13529"
+. . .    
+```
 
 
 ### EOF (2025/03/07)
