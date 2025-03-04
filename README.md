@@ -10,7 +10,7 @@ Previously, there was [Redis Stack Workshop: Redis Stack OM Library for Node.js]
 
 - All you need is [NodeJS](https://nodejs.org/en) and a [Redis Free Account](https://redis.io/try-free/). 
 
-- The original [README.md](./README.Guy.md) written by Guy. 
+- The original [README.md](./README.Guy.md) written by [Guy Royse](https://www.youtube.com/@guyroyse). 
 
 
 #### I. Setting up backend end API 
@@ -308,14 +308,14 @@ Va là! It works as expected...
 
 
 #### V. Summary
-To finish with creation of 300 embeddings, i can hear my computer buzzed in exasperation for more than 15 hours... 
+To finish with creation of 300 embeddings, i can hear my computer kept on buzzing in exasperation for more than 15 hours... 
 
 
 
 
 #### VI. Bibliography
-1. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search](https://youtu.be/KxuZEApLRPU)
-2. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search](https://youtu.be/R1IXYnoSd5U)
+1. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search (Part One)](https://youtu.be/R1IXYnoSd5U)
+2. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search (Part Two)](https://youtu.be/KxuZEApLRPU)
 3. [Finding Bigfoot with JavaScript + vector search](https://github.com/redis-developer/finding-bigfoot-with-semantic-search/tree/main?tab=readme-ov-file#start-services)
 4. [JSON Lines](https://jsonlines.org/)
 5. [Hugging Face](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf)
