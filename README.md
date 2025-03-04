@@ -315,7 +315,7 @@ Creation of embeddings is a CPU intensive task, it takes 3 minutes to process on
 
 
 #### IV. Running the front end
-Up till now, we've got everything ready to run the frontend. Just change to `web` folder and type `npm run dev`. 
+Up till now, we've got everything ready to run the frontend. Just change to `web` folder and type `npm install` and `npm run dev`. 
 
 ![alt web1](img/web1.JPG)
 
@@ -325,7 +325,69 @@ Up till now, we've got everything ready to run the frontend. Just change to `web
 
 ![alt web4](img/web4.JPG)
 
-Va là! It works as expected... 
+Va là! It works as expected... But how *does* the search work? 
+
+> Redis introduced vector search capabilities in Redis 7.2, which was released in October 2023. This release included support for indexing and querying vector fields, allowing users to perform semantic searches and leverage vector embeddings in various applications.
+
+Redis supports three types of query on [vectors](https://redis.io/docs/latest/develop/interact/search-and-query/advanced-concepts/vectors/): 
+
+- KNN vector search: Search finds the top k nearest neighbors to a query vector; 
+
+- Vector range search: Vector range queries allow you to filter the index using a radius parameter representing the semantic distance between an input query vector and indexed vector fields; 
+
+- Hybrid search: Redis supports vector searches that include filters to narrow the search space based on defined criteria. If your index contains searchable fields (for example, TEXT, TAG, NUMERIC, GEO, GEOSHAPE, and VECTOR).
+
+Let's back to our backend API code: 
+
+`main.js`
+```
+export async function search(query, params, count) {
+
+  // build a search query portion of the redis query based on the parameters
+  let searchQuery = ''
+  if (params.state) searchQuery += `@state:{${params.state}} `
+  if (params.county) searchQuery += `@county:{${params.county}} `
+  if (params.classification) searchQuery += `@classification:{${params.classification}} `
+  if (params.highTemp) searchQuery += `@highTemp:[${params.highTemp[0]} ${params.highTemp[1]}] `
+  if (params.point) searchQuery += `@latlng:[${params.point.lng} ${params.point.lat} ${params.point.radius} mi] `
+
+  // if the search query portion is empty, default it to a wildcard
+  if (searchQuery.length === 0) searchQuery = "*"
+
+  // build the vector query portion of the redis query
+  const vectorQuery = `KNN ${count} @embedding $BLOB`
+
+  // put it all together in the format (*)=>[KNN 1 @embedding $BLOB]
+  const redisQuery = `(${searchQuery})=>[${vectorQuery}]`
+
+  // embed the query string entered by the user
+  const embedding = await fetchEmbeddingModel().embedQuery(query)
+  const embeddingBytes = Buffer.from(Float32Array.from(embedding).buffer)
+
+  // execute the search
+  const searchResults = await redis.ft.search('bigfoot:sighting:index', redisQuery, {
+    DIALECT: 2,
+    PARAMS: { 'BLOB': embeddingBytes },
+    SORTBY: '__embedding_score',
+    RETURN: [ 'id', 'title', 'summary', '__embedding_score' ]
+  })
+
+  // parse and return the results
+  const results =  searchResults.documents.map(document => document.value)
+  return results
+
+}
+```
+
+The `save` function does all the heavy lifting by: 
+
+- It composes `searchQuery` filter by concatenating conditions (`state`, `county`, `classification`, `highTemp`, `point`) present in `params`; 
+
+- If the filter is empty, make it be '*'; 
+
+- `vectorQuery` is a hybrid query with `searchQuery` as filter and then KNN vector search; 
+
+- Input `query` must be transformed to vector and convert to Array of float32 before passing to FT.SEARCH
 
 
 #### V. Summary
