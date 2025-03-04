@@ -405,7 +405,7 @@ To finish with creation of 300 embeddings, i can hear my computer kept on buzzin
 
 
 #### Epilogue
-For now, let's play with the index:
+For now, let's play with the index. 
 
 Example 1: How many sightings? 
 ```
