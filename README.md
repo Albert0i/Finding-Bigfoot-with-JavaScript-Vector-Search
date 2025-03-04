@@ -388,7 +388,7 @@ The `search` function does all the heavy lifting:
 
 
 #### V. Summary
-To finish with creation of 300 embeddings, I can hear my computer kept on buzzing in exasperation for more than 15 hours... As you can see these AI things always mean money! 
+To finish with creation of 300 embeddings, I heard my computer kept on buzzing in exasperation for more than 15 hours... As you can see these AI things mean money! 
 
 
 #### VI. Bibliography
