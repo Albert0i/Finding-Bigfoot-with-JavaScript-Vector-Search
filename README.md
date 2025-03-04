@@ -379,7 +379,7 @@ export async function search(query, params, count) {
 }
 ```
 
-The `save` function does all the heavy lifting by: 
+The `search` function does all the heavy lifting by: 
 
 - It composes `searchQuery` filter by concatenating conditions (`state`, `county`, `classification`, `highTemp`, `point`) present in `params`; 
 
@@ -387,7 +387,9 @@ The `save` function does all the heavy lifting by:
 
 - `vectorQuery` is a hybrid query with `searchQuery` as filter and then KNN vector search; 
 
-- Input `query` must be transformed to vector and convert to Array of float32 before passing to FT.SEARCH
+- Input `query` must be transformed to vector and convert to Array of float32; 
+
+- Make a call to [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/). 
 
 
 #### V. Summary
