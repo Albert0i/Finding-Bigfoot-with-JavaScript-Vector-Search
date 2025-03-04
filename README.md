@@ -493,7 +493,7 @@ Example 3: How many states involved and sorted them in descending order?
    4) "2"
 ```
 
-Example 4: Top 10 longest sighting report?
+Example 4: Top 10 most detailed sighting report?
 ```
 > FT.AGGREGATE bigfoot:sighting:index * LOAD 1 @observed FILTER "exists(@observed)" apply "strlen(@observed)" AS obs_len GROUPBY 2 @id @obs_len SORTBY 2 @obs_len DESC LIMIT 0 10
 1) "299"
