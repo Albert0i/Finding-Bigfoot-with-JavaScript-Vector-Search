@@ -512,5 +512,29 @@ Example 4: Top 10 most detailed sighting report?
 . . .    
 ```
 
+Example 5: In Alaska 5700km around. 
+```
+> FT.SEARCH bigfoot:sighting:index "*" GEOFILTER latlng 149.4937 64.200 5700 km return 1 title SORTBY title
+1) "6"
+2) "bigfoot:sighting:36759"
+3) 1) "title"
+   2) "Deer hunter on the Flathead Indian Reservation passes a tall biped on the roadside"
+4) "bigfoot:sighting:10260"
+5) 1) "title"
+   2) "Four climbers report repeated vocalizations"
+6) "bigfoot:sighting:1517"
+7) 1) "title"
+   2) "Horse-riding witnesses see hairy bipedal animal cross trail on Blackfeet Reservation"
+8) "bigfoot:sighting:21907"
+9) 1) "title"
+   2) "Possible sighting and wood knocks heard near Swan Lake"
+10) "bigfoot:sighting:12636"
+11) 1) "title"
+   2) "Video taken of running biped near Avalanche in Glacier National Park"
+12) "bigfoot:sighting:8999"
+13) 1) "title"
+   2) "Woman reports riverbank sighting"
+```
+
 
 ### EOF (2025/03/07)
