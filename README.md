@@ -382,8 +382,8 @@ The `search` function does all the heavy lifting:
 
 - It composes `searchQuery` filter by concatenating conditions (`state`, `county`, `classification`, `highTemp`, `point`) present in `params`; 
 - If the filter is empty, make it be '*'; 
-- `vectorQuery` is a hybrid query with `searchQuery` as filter and then KNN vector search; 
-- Input `query` must be transformed to vector and convert to Array of float32; 
+- `vectorQuery` is a hybrid query with `searchQuery` as filter follows by KNN vector search; 
+- Input `query` must be transformed to vector and converted to Array of float32; 
 - Makes a call to [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/). 
 
 
