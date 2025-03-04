@@ -314,14 +314,18 @@ To finish with creation of 300 embeddings, i can hear my computer kept on buzzin
 
 
 #### VI. Bibliography
-1. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search (Part One)](https://youtu.be/R1IXYnoSd5U)
-2. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search (Part Two)](https://youtu.be/KxuZEApLRPU)
-3. [Finding Bigfoot with JavaScript + vector search](https://github.com/redis-developer/finding-bigfoot-with-semantic-search/tree/main?tab=readme-ov-file#start-services)
-4. [JSON Lines](https://jsonlines.org/)
-5. [Hugging Face](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf)
-6. [Transformers.js](https://github.com/huggingface/transformers.js?tab=readme-ov-file#readme)
-7. [Node-Redis](https://www.npmjs.com/package/redis)
-8. [The Stranger by Albert Camus](https://www.macobo.com/essays/epdf/CAMUS,%20Albert%20-%20The%20Stranger.pdf)
+
+1. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search, 12024年1月20日](https://youtu.be/NDAzTvjpyS4)
+2. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search, 2024年1月25日](https://youtu.be/jcn14w4eK_k)
+3. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search, 2024年2月8日](https://youtu.be/KxuZEApLRPU)
+4. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search, 2024年2月10日](https://youtu.be/0QIOxI7dE1Q)
+5. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search, 2024年1月18日](https://youtu.be/R1IXYnoSd5U)
+6. [Finding Bigfoot with JavaScript + vector search](https://github.com/redis-developer/finding-bigfoot-with-semantic-search/tree/main?tab=readme-ov-file#start-services)
+7. [JSON Lines](https://jsonlines.org/)
+8. [Hugging Face](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf)
+9. [Transformers.js](https://github.com/huggingface/transformers.js?tab=readme-ov-file#readme)
+10. [Node-Redis](https://www.npmjs.com/package/redis)
+11. [The Stranger by Albert Camus](https://www.macobo.com/essays/epdf/CAMUS,%20Albert%20-%20The%20Stranger.pdf)
 
 
 #### Epilogue
