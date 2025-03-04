@@ -413,7 +413,15 @@ Example 1: How many sightings?
 1) "300"
 ```
 
-Example 2: Which states involved? 
+Or
+```
+> FT.AGGREGATE bigfoot:sighting:index * GROUPBY 0 REDUCE COUNT 0 AS cnt
+1) "1"
+2) 1) "cnt"
+   2) "300"
+```
+
+Example 2: How many states involved? 
 ```
 > FT.AGGREGATE bigfoot:sighting:index * GROUPBY 1 @state SORTBY 2 @state ASC
 1) "16"
@@ -439,7 +447,7 @@ Example 2: Which states involved?
    2) "New York"
 ```
 
-Example 3: Which states involved and sorted them in descending order? 
+Example 3: How many states involved and sorted them in descending order? 
 ```
 > FT.AGGREGATE bigfoot:sighting:index * GROUPBY 1 @state REDUCE COUNT 0 AS count SORTBY 2 @count DESC
 1) "16"
@@ -485,7 +493,7 @@ Example 3: Which states involved and sorted them in descending order?
    4) "2"
 ```
 
-Example 4: Top 10 longest sighting reported?
+Example 4: Top 10 longest sighting report?
 ```
 > FT.AGGREGATE bigfoot:sighting:index * LOAD 1 @observed FILTER "exists(@observed)" apply "strlen(@observed)" AS obs_len GROUPBY 2 @id @obs_len SORTBY 2 @obs_len DESC LIMIT 0 10
 1) "299"
