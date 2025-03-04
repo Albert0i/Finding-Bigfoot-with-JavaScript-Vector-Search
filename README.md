@@ -325,7 +325,7 @@ Up till now, we've got everything ready to run the frontend. Just change to `web
 
 ![alt web4](img/web4.JPG)
 
-Va là! It works as expected... But how *does* the search work? 
+Va là! It works as expected... But *HOW*?
 
 > Redis introduced vector search capabilities in Redis 7.2, which was released in October 2023. This release included support for indexing and querying vector fields, allowing users to perform semantic searches and leverage vector embeddings in various applications.
 
