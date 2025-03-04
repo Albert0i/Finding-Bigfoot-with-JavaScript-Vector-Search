@@ -1,4 +1,4 @@
-### Notes from [Finding Bigfoot with JavaScript + vector search](https://youtu.be/KxuZEApLRPU)
+### Notes from "[Finding Bigfoot with JavaScript + vector search](https://youtu.be/R1IXYnoSd5U)"
 
 > "to trench on certain matters which, on a superficial view, might seem foreign to the case, but actually were highly relevant.<br />--- The Stranger by Albert Camus"
 
