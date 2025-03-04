@@ -93,6 +93,27 @@ async function createIndex() {
 }
 ```
 
+Which is equivalent to: 
+```
+FT.CREATE bigfoot:sighting:index 
+  ON HASH PREFIX 1 bigfoot:sighting:
+  SCHEMA
+  id TAG 
+  title TEXT 
+  observed TEXT 
+  classification TAG 
+  county TAG 
+  state TAG 
+  latlng GEO 
+  highTemp NUMERIC 
+  embeddings VECTOR FLAT 6
+    TYPE FLOAT32
+    DIM 384
+    DISTANCE_METRIC L2
+```
+
+To create index `bigfoot:sighting:index` on [HASH](https://redis.io/docs/latest/develop/data-types/hashes/) with prefix `bigfoot:sighting:`, our protagonist `embeddings` field to be indexed with FLAT method on array of 384 dimensions of FLOAT32, metric distance L2, so to speak...
+
 
 #### II. Loading the data 
 It is impossible to load all 4586 sightings into a Redis Free Account as it is confined to 30MB only! I significantly trimmed them down to 300 sightings. Each sighting data takes the form of: 
