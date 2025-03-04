@@ -9,7 +9,6 @@
 Previously, there was [Redis Stack Workshop: Redis Stack OM Library for Node.js](https://youtu.be/KUfufrwpBkM). Everytime I look into codes written by Guy, I learn something new... This repo is a simplified version of the original and is in favor of [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) rather then [Docker](https://en.wikipedia.org/wiki/Docker_(software)) environment. 
 
 - All you need is [NodeJS](https://nodejs.org/en) and a [Redis Free Account](https://redis.io/try-free/). 
-
 - The original [README.md](./README.Guy.md) written by [Guy Royse](https://www.youtube.com/@guyroyse). 
 
 
@@ -382,20 +381,14 @@ export async function search(query, params, count) {
 The `search` function does all the heavy lifting: 
 
 - It composes `searchQuery` filter by concatenating conditions (`state`, `county`, `classification`, `highTemp`, `point`) present in `params`; 
-
 - If the filter is empty, make it be '*'; 
-
 - `vectorQuery` is a hybrid query with `searchQuery` as filter and then KNN vector search; 
-
 - Input `query` must be transformed to vector and convert to Array of float32; 
-
 - Makes a call to [FT.SEARCH](https://redis.io/docs/latest/commands/ft.search/). 
 
 
 #### V. Summary
 To finish with creation of 300 embeddings, i can hear my computer kept on buzzing in exasperation for more than 15 hours... 
-
-
 
 
 #### VI. Bibliography
