@@ -512,7 +512,7 @@ Example 4: Top 10 most detailed sighting report?
 . . .    
 ```
 
-Example 5: In Alaska 5700km around. 
+Example 5: Sightings in Alaska 5700km around. 
 ```
 > FT.SEARCH bigfoot:sighting:index "*" GEOFILTER latlng 149.4937 64.200 5700 km return 1 title SORTBY title
 1) "6"
