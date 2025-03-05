@@ -111,7 +111,12 @@ FT.CREATE bigfoot:sighting:index
     DISTANCE_METRIC L2
 ```
 
-To create index `bigfoot:sighting:index` on [HASH](https://redis.io/docs/latest/develop/data-types/hashes/) with prefix `bigfoot:sighting:`, our protagonist `embeddings` field to be indexed with FLAT method on array of 384 dimensions of FLOAT32, metric distance L2, so to speak...
+To create index `bigfoot:sighting:index` on [HASH](https://redis.io/docs/latest/develop/data-types/hashes/) with prefix `bigfoot:sighting:`, our protagonist `embeddings` field to be indexed with FLAT method on array of 384 dimensions of FLOAT32, metric distance L2, so to speak... Now, go ahead and check it. 
+
+```
+FT.INFO bigfoot:sighting:index
+```
+![alt FT.INFO](img/FT.INFO.JPG)
 
 
 #### II. Loading the data 
