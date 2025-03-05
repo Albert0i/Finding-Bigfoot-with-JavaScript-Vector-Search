@@ -62,7 +62,7 @@ http://localhost:3000/api/search
 - fetch : Call `fetch` function in `main.js` to get a sighting record from Redis by `hGetAll`; 
 - search : Call `search` function in `main.js` to search sighting records via *vector semantic search*; 
 
-Our backend is up and running, easy-peasy! Right? Behind the scene `redis.js` checks and create index `bigfoot:sighting:index` if necessary every time it is restarted. 
+Our backend is up and running, easy-peasy! Right? Behind the scene `redis.js` checks and creates index `bigfoot:sighting:index` for us if necessary every time it is restarted. 
 
 `src/redis.js`
 ```
