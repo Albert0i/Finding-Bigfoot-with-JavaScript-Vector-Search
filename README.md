@@ -402,11 +402,13 @@ To finish with creation of 300 embeddings, I heard my computer kept on buzzing i
 3. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search, 2024年1月25日](https://youtu.be/jcn14w4eK_k)
 4. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search, 2024年2月8日](https://youtu.be/KxuZEApLRPU)
 5. [Live coding with Guy: Finding Bigfoot with JavaScript + Vector Search, 2024年2月10日](https://youtu.be/0QIOxI7dE1Q)
-6. [Finding Bigfoot with JavaScript + vector search](https://github.com/redis-developer/finding-bigfoot-with-semantic-search/blob/main/README.md#if-youre-not-using-docker)
-7. [Hugging Face](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf)
-8. [Transformers.js](https://github.com/huggingface/transformers.js?tab=readme-ov-file#readme)
-9. [Node-Redis](https://www.npmjs.com/package/redis)
-10. [The Stranger by Albert Camus](https://www.macobo.com/essays/epdf/CAMUS,%20Albert%20-%20The%20Stranger.pdf)
+6. [Finding Bigfoot with Vector Search, 2024年7月4日](https://youtu.be/0NcWtu0NG2k)
+7. [Finding Bigfoot with Redis + RediSearch by Guy Royse, 2022年5月18日](https://youtu.be/kKiddG1QCRk)
+8. [Finding Bigfoot with JavaScript + vector search](https://github.com/redis-developer/finding-bigfoot-with-semantic-search/blob/main/README.md#if-youre-not-using-docker)
+9. [Hugging Face](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/blob/main/mistral-7b-instruct-v0.2.Q4_K_M.gguf)
+10. [Transformers.js](https://github.com/huggingface/transformers.js?tab=readme-ov-file#readme)
+11. [Node-Redis](https://www.npmjs.com/package/redis)
+12. [The Stranger by Albert Camus](https://www.macobo.com/essays/epdf/CAMUS,%20Albert%20-%20The%20Stranger.pdf)
 
 
 #### Epilogue
@@ -544,4 +546,4 @@ Example 5: Sightings in 149.4937, 64.200 and 5700km around.
 Pretty cool! 
 
 
-### EOF (2025/03/07)
+### EOF (2025/03/14)
