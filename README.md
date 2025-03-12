@@ -215,6 +215,28 @@ Run `npm install`. The embedder is a stand-alone process which reads in sighting
 
 - Add these two new field into original sighting data via `hSet`. 
 
+---
+**Note:**
+1. The filename "mistral-7b-instruct-v0.2.Q4_K_M.gguf" implies:
+
+- **mistral-7b**: This indicates the base model, which is the Mistral 7B model. The "7B" refers to the model having 7 billion parameters.
+- **instruct**: This suggests that the model has been fine-tuned for instruction-following tasks, making it suitable for applications like chatbots or other interactive AI systems.
+- **v0.2**: This denotes the version of the model, indicating that it is version 0.2.
+- **Q4_K_M**: This part refers to the quantization method used. "Q4" indicates 4-bit quantization, which helps in reducing the model size and computational requirements. "K" and "M" are likely specific quantization schemes or techniques used[1](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF).
+- **gguf**: This is the file format used, which is GGUF. GGUF is a format introduced by the llama.cpp team as a replacement for GGML[1](https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF).
+2. The **`node-llama-cpp`** package allows you to run AI models locally on your machine using Node.js bindings for the llama.cpp library. Here are some key features:
+
+- **Local Execution**: Run large language models (LLMs) on your local machine.
+- **Pre-built Binaries**: Comes with pre-built binaries for macOS, Linux, and Windows. If binaries are not available, it can build from source using CMake.
+- **Hardware Support**: Supports Metal, CUDA, and Vulkan, adapting to your hardware automatically.
+- **CLI and API**: Provides a command-line interface (CLI) to interact with models without writing code, and a comprehensive API for deeper integration.
+- **JSON Schema Enforcement**: Can enforce a model to generate output in a specific format, like JSON.
+- **Function Calling**: Allows models to call functions on demand to retrieve information or perform actions.
+- **Embedding and Reranking**: Supports embedding and reranking tasks.
+- **Security**: Safe against special token injection attacks.
+- **Developer Experience**: Full TypeScript support and complete documentation.
+---
+
 `app.js`
 ```
 async function processEvent(event) {
