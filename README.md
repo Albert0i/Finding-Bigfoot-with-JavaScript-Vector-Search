@@ -224,6 +224,7 @@ Run `npm install`. The embedder is a stand-alone process which reads in sighting
 - **v0.2**: This denotes the version of the model, indicating that it is version 0.2.
 - **Q4_K_M**: This part refers to the quantization method used. "Q4" indicates 4-bit quantization, which helps in reducing the model size and computational requirements. "K" and "M" are likely specific quantization schemes or techniques used.
 - **gguf**: This is the file format used, which is GGUF. GGUF is a format introduced by the llama.cpp team as a replacement for GGML.
+
 2. The **`node-llama-cpp`** package allows you to run AI models locally on your machine using Node.js bindings for the llama.cpp library. Here are some key features:
 
 - **Local Execution**: Run large language models (LLMs) on your local machine.
@@ -235,6 +236,12 @@ Run `npm install`. The embedder is a stand-alone process which reads in sighting
 - **Embedding and Reranking**: Supports embedding and reranking tasks.
 - **Security**: Safe against special token injection attacks.
 - **Developer Experience**: Full TypeScript support and complete documentation.
+
+3. LangChain is a comprehensive framework designed for developing applications powered by large language models (LLMs). It simplifies the entire lifecycle of LLM applications, from development to deployment. 
+
+4. The @langchain/community package is part of the LangChain ecosystem, focusing on third-party integrations.
+
+5. The @xenova/transformers package allows you to run state-of-the-art machine learning models directly in your browser, without needing a server. 
 ---
 
 `app.js`
